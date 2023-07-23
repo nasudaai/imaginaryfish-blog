@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vite-json</title>
+</head>
+<body>
+  
+  <header>
+    <a href="../index.html">Home</a>
+  </header>
+  
+  <main>
+
+    <h1>viteで構築した開発環境ではJSONファイルをpublicディレクトリに</h1>
+
+    <p>viteで環境構築したvanillaなjs環境で、jsonfileをどこにおくべきか。</p>
+    
+    <p>publicフォルダに配置しておくと、build後にindex.htmlと同じ階層に配置される。<br/>
+    開発時にpublicフォルダに入れておいても、publicというpathは指定しなくていい。<br/>
+    開発時とbuild時でpathの変更をする必要はないということだ。
+    </p>
+    
+    <p>
+      またcssfileは、buildされたあとはassetsディレクトリに配置される。<br/>
+      JavaSctiptファイルもassetsディレクトリに配置される。<br/>
+      index.htmlには自動的に、assetsディレクトリへのpathが配置されるようだ。<br/>
+      htmlから直接読み込んでいても、jsfileにimportしていても同様の結果をえられるようだ。
+    </p>
+    
+    <p>
+      そして、gh-pagesにデプロイする時はvite.config.jsにbaseの値を設定すると、あとはうまいことやってくれるようだ。<br/>
+      <pre>
+        <code>export default { base: '/reponame/' }</code>
+      </pre>
+      これが最低限の記述で、一応これで機能する。
+    </p> 
+    
+    <p>
+      ちなみに、その最低限の設定で動かしている私のgithubpagesはこちら<a href="https://nasudaai.github.io/vite-vanilla/">vite-vanilla</a>。
+    </p>
+    
+    <p>
+      reactなどでcreateするとvite.config.jsは最初から配置されている。<br/>
+      pluginとしてreactを使っているのだから設定ファイルに記述されているということだ。<br/>
+      冒頭に<br/>
+      <pre>
+        <code>
+          import { defainConfig } from 'vite' 
+        </code>
+      </pre>
+      というコードがあって、関数も呼び出しているようだ。
+    </p>
+  
+  </main>
+</body>
+</html>
